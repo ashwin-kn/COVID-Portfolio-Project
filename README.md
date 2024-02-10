@@ -2,7 +2,7 @@
 
 Dashboard Link: [COVID Data Dashboard](https://public.tableau.com/views/CovidDashboard_16483666804760/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link)
 ---
-<br></br>
+
 ## Introduction
 The COVID-19 pandemic has had profound effects globally, impacting various aspects of society including public health, economy, and social dynamics. In response to this crisis, extensive data collection and analysis have been undertaken to understand the spread of the virus, its impact on different populations, and the effectiveness of mitigation strategies. The COVID Portfolio Project aims to leverage SQL tools and techniques to explore and analyze COVID-19 data, providing insights into infection rates, mortality rates, vaccination progress, and other relevant metrics.
 
