@@ -106,7 +106,7 @@ This query analyzes the progress of COVID-19 vaccinations relative to population
 
 1. **SELECT statement**:
    - It selects specific columns from two tables, `CovidDeaths` and `CovidVaccinations`.
-   - Additionally, it calculates the rolling sum of new vaccinations using the `SUM()` function with the `OVER` clause. This rolling sum is partitioned by location and ordered by location and date. The result is aliased as `RollingPeopleVaccinated`.
+   - Additionally, it calculates the *rolling sum* (the summation of a sequence of numbers which is updated each time a new number is added to the sequence, by adding the value of the new number to the previous running total) of new vaccinations using the `SUM()` function with the `OVER` clause. This rolling sum is partitioned by location and ordered by location and date. The result is aliased as `RollingPeopleVaccinated`.
 
 2. **FROM clause**:
    - It specifies the tables from which data will be retrieved: `PortfolioProject..CovidDeaths` and `PortfolioProject..CovidVaccinations`.
@@ -144,13 +144,13 @@ This code utilizes a Common Table Expression (CTE) named `PopvsVac` to calculate
 1. **CTE Definition (PopvsVac)**:
    - The CTE defines columns `continent`, `location`, `date`, `population`, `new_vaccinations`, and `RollingPeopleVaccinated`.
    - It selects data from `CovidDeaths` and `CovidVaccinations` tables, joining them on the location and date.
-   - The `SUM(CONVERT(INT, vac.new_vaccinations)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated` calculates the rolling sum of new vaccinations partitioned by location and ordered by location and date.
+   - The `RollingPeopleVaccinated` calculates the rolling sum of new vaccinations partitioned by location and ordered by location and date.
 
 2. **Main Query**:
    - The main query selects all columns from the CTE (`PopvsVac`).
    - It calculates the percentage of rolling people vaccinated by dividing `RollingPeopleVaccinated` by `Population` and multiplying by 100.
 
-Overall, this query provides a concise and efficient way to calculate the percentage of the population vaccinated by leveraging a CTE for intermediate calculations.
+This query provides a way to calculate the percentage of the population vaccinated by leveraging a CTE for intermediate calculations.
 
 ## Using Temporary Tables <a name="using-temporary-tables"></a>
 ```sql
